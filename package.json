@@ -22,13 +22,17 @@
     "@remotion/eslint-config-flat": "4.0.538",
     "@types/react": "19.2.7",
     "@types/web": "0.0.166",
+    "@vitejs/plugin-react": "^6.1.2",
     "eslint": "10.12.0",
     "prettier": "3.8.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vite": "^8.3.5"
   },
   "scripts": {
     "dev": "remotion studio",
+    "dev:web": "vite",
     "build": "remotion bundle",
+    "build:web": "vite build",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"
   },
