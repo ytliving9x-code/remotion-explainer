@@ -160,6 +160,57 @@ const PRESET_TOPICS: Record<string, UniversalTopicConfig> = {
     },
     audioFolder: "audio",
   },
+  hairDryer: {
+    id: "hair-dryer-30s",
+    title: "MÁY SẤY TÓC HOẠT ĐỘNG THẾ NÀO?",
+    category: "CÔNG NGHỆ TRONG 30 GIÂY",
+    theme: {
+      accentColor: "#F97316",
+      secondaryColor: "#EF4444",
+      visualPack: "thermal",
+    },
+    segments: [
+      {
+        step: 1,
+        name: "HÚT GIÓ",
+        voiceText: "Bước một: Cánh quạt mini bên trong quay tít, hút luồng không khí mát từ phía sau vào.",
+        highlight: "BƯỚC 1: HÚT GIÓ ➔ NẠP KHÍ MÁT",
+        subText: "Cánh quạt mini quay tít, hút không khí từ ngoài vào buồng máy.",
+        icon: "fan",
+      },
+      {
+        step: 2,
+        name: "LÀM NÓNG",
+        voiceText: "Bước hai: Dòng điện chạy qua cuộn dây mayso khiến nó nóng đỏ rực lên ngay lập tức.",
+        highlight: "BƯỚC 2: CUỘN DÂY NÓNG ĐỎ ➔ TỎA NHIỆT CAO",
+        subText: "Dòng điện chạy qua dây mayso biến đổi điện năng thành nhiệt lượng cực lớn.",
+        icon: "heat-coil",
+      },
+      {
+        step: 3,
+        name: "TRUYỀN NHIỆT",
+        voiceText: "Bước ba: Không khí mát bị ép lướt qua cuộn dây nóng, nhanh chóng hấp thụ nhiệt và tăng nhiệt độ.",
+        highlight: "BƯỚC 3: ĐỐI LƯU KHÍ ➔ BIẾN GIÓ THÀNH HƠI NÓNG",
+        subText: "Luồng khí bị ép qua cuộn dây, nhanh chóng biến thành luồng hơi nóng rực.",
+        icon: "wind-thermal",
+      },
+      {
+        step: 4,
+        name: "THỔI KHÍ NÓNG",
+        voiceText: "Bước bốn: Luồng khí nóng được đẩy mạnh ra đầu vòi, làm bốc hơi các hạt nước trên tóc bạn trong chớp mắt!",
+        highlight: "BƯỚC 4: PHUN HƠI NÓNG ➔ LÀM KHÔ CỰC NHANH",
+        subText: "Gió nóng thổi mạnh làm bay hơi nước bám trên tóc trong tích tắc.",
+        icon: "blow-dry",
+      },
+    ],
+    outro: {
+      voiceText: "Xong trong 30 giây! Bạn muốn mổ xẻ thiết bị nào tiếp theo, hãy bình luận nhé!",
+      highlight: "30 GIÂY ĐÃ HẾT! 💨",
+      subText: "Bạn muốn mổ xẻ thiết bị gia dụng nào tiếp theo?",
+      cta: "Bình luận ngay ý tưởng của bạn!",
+    },
+    audioFolder: "audio",
+  },
 };
 
 export const App: React.FC = () => {
@@ -363,6 +414,35 @@ export const App: React.FC = () => {
           }}
         >
           ✈️ Động Cơ Phản Lực
+        </button>
+
+        <button
+          onClick={() => {
+            setTemplate("universal");
+            loadPreset("hairDryer");
+          }}
+          style={{
+            padding: "7px 14px",
+            borderRadius: 20,
+            fontSize: 12,
+            fontWeight: 700,
+            cursor: "pointer",
+            border:
+              template === "universal" && topicConfig.id === "hair-dryer-30s"
+                ? "1px solid #F97316"
+                : "1px solid rgba(255,255,255,0.1)",
+            backgroundColor:
+              template === "universal" && topicConfig.id === "hair-dryer-30s"
+                ? "rgba(249, 115, 22, 0.25)"
+                : "rgba(31, 41, 55, 0.5)",
+            color:
+              template === "universal" && topicConfig.id === "hair-dryer-30s"
+                ? "#FB923C"
+                : "#9CA3AF",
+            transition: "all 0.2s ease",
+          }}
+        >
+          💨 Máy Sấy Tóc
         </button>
 
         <button
@@ -674,6 +754,22 @@ export const App: React.FC = () => {
                   🏎️ Bộ vi sai ô tô
                 </button>
                 <button
+                  onClick={() => loadPreset("hairDryer")}
+                  style={{
+                    padding: "8px 10px",
+                    borderRadius: 8,
+                    fontSize: 12,
+                    fontWeight: 700,
+                    backgroundColor: "rgba(249, 115, 22, 0.15)",
+                    border: "1px solid rgba(249, 115, 22, 0.3)",
+                    color: "#FDBA74",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                >
+                  💨 Máy sấy tóc 30s
+                </button>
+                <button
                   onClick={() => {
                     setTemplate("xray");
                     setActiveTab("player");
@@ -779,6 +875,9 @@ export const App: React.FC = () => {
                         }}
                       >
                         <option value="fan">🌀 Quạt Hút (Fan)</option>
+                        <option value="heat-coil">🔥 Dây Mayso (Heat Coil)</option>
+                        <option value="wind-thermal">💨 Khí Nóng Đối Lưu (Thermal)</option>
+                        <option value="blow-dry">🌪️ Máy Sấy Hoàn Chỉnh (Dryer)</option>
                         <option value="pressure">⚡ Áp Suất (Pressure)</option>
                         <option value="fire">🔥 Đốt Cháy (Fire)</option>
                         <option value="thrust">🚀 Phản Lực (Thrust)</option>

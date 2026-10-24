@@ -360,7 +360,290 @@ export const ModularVisual: React.FC<ModularVisualProps> = ({
           </g>
         )}
 
-        {/* 6. GENERIC / TECH CORE PULSE (Default Fallback) */}
+        {/* 6. HEAT COIL (CUỘN DÂY MAYSO NÓNG ĐỎ) */}
+        {(iconType === "heat-coil" || iconType === "coil") && (
+          <g>
+            {/* Mica Ceramic Insulator Frame */}
+            <rect
+              x="250"
+              y="320"
+              width="500"
+              height="160"
+              rx="20"
+              fill="#1E293B"
+              stroke="#475569"
+              strokeWidth="4"
+              opacity="0.9"
+            />
+            <line
+              x1="250"
+              y1="400"
+              x2="750"
+              y2="400"
+              stroke="#64748B"
+              strokeWidth="6"
+              strokeDasharray="16 16"
+            />
+
+            {/* Glowing Heating Coils (Spring loops) */}
+            {Array.from({ length: 14 }).map((_, i) => {
+              const xPos = 290 + i * 32;
+              const heatIntensity = interpolate(
+                Math.sin((frame / 8) * Math.PI + i * 0.4),
+                [-1, 1],
+                [0.75, 1.0]
+              );
+              const coilGlow = heatIntensity > 0.88 ? "#FEF08A" : "#EF4444";
+              return (
+                <g key={i}>
+                  <ellipse
+                    cx={xPos}
+                    cy="400"
+                    rx="14"
+                    ry="60"
+                    fill="none"
+                    stroke={coilGlow}
+                    strokeWidth={6 * heatIntensity}
+                    opacity={heatIntensity}
+                    style={{ filter: "drop-shadow(0 0 10px #F97316)" }}
+                  />
+                  {/* Heat Shimmer Waves */}
+                  <path
+                    d={`M ${xPos - 5} 330 Q ${xPos} 300 ${xPos - 5} 270 Q ${xPos} 240 ${xPos - 5} 210`}
+                    fill="none"
+                    stroke="#F97316"
+                    strokeWidth="2.5"
+                    opacity={((frame * 2 + i * 15) % 60) / 60}
+                  />
+                </g>
+              );
+            })}
+
+            {/* Terminal Connectors (220V) */}
+            <rect x="220" y="380" width="30" height="40" rx="4" fill="#94A3B8" />
+            <rect x="750" y="380" width="30" height="40" rx="4" fill="#94A3B8" />
+            <text
+              x="500"
+              y="270"
+              textAnchor="middle"
+              fill="#FEF08A"
+              fontSize="20"
+              fontWeight="900"
+              letterSpacing="3"
+            >
+              ⚡ DÂY NIKEN-CROM NÓNG ĐỎ 800°C ⚡
+            </text>
+          </g>
+        )}
+
+        {/* 7. WIND THERMAL (ĐỐI LƯU KHÍ MÁT ➔ HƠI NÓNG) */}
+        {(iconType === "wind-thermal" || iconType === "thermal") && (
+          <g>
+            {/* Center Mesh Barrier */}
+            <line
+              x1="500"
+              y1="200"
+              x2="500"
+              y2="600"
+              stroke="#EF4444"
+              strokeWidth="8"
+              strokeDasharray="12 12"
+            />
+            <rect x="490" y="190" width="20" height="420" rx="6" fill="#F97316" opacity="0.3" />
+
+            {/* Left side: Cold ambient airflow (Cyan) */}
+            {[-120, -60, 0, 60, 120].map((yOff, i) => {
+              const xPos = 160 + ((frame * 18 + i * 65) % 300);
+              return (
+                <g key={i} transform={`translate(${xPos}, ${400 + yOff})`}>
+                  <line
+                    x1="0"
+                    y1="0"
+                    x2="80"
+                    y2="0"
+                    stroke="#38BDF8"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    opacity="0.85"
+                  />
+                  <polygon points="80,-6 96,0 80,6" fill="#38BDF8" />
+                  <text x="30" y="-12" fill="#38BDF8" fontSize="13" fontWeight="800">
+                    25°C
+                  </text>
+                </g>
+              );
+            })}
+
+            {/* Right side: Blazing Hot Airflow (Red-Orange) */}
+            {[-130, -70, -10, 50, 110, 170].map((yOff, i) => {
+              const xPos = 520 + ((frame * 24 + i * 50) % 360);
+              const waveY = Math.sin(frame * 0.2 + i) * 12;
+              return (
+                <g key={i} transform={`translate(${xPos}, ${400 + yOff + waveY})`}>
+                  <path
+                    d="M 0 0 Q 30 -10 60 0 T 120 0"
+                    fill="none"
+                    stroke="#EF4444"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                    style={{ filter: "drop-shadow(0 0 8px #F97316)" }}
+                  />
+                  <polygon points="120,-7 138,0 120,7" fill="#FEF08A" />
+                  <text x="40" y="-12" fill="#FEF08A" fontSize="14" fontWeight="900">
+                    120°C 🔥
+                  </text>
+                </g>
+              );
+            })}
+          </g>
+        )}
+
+        {/* 8. COMPLETE HAIR DRYER (MẶT CẮT TOÀN DIỆN CHIẾC MÁY SẤY TÓC) */}
+        {(iconType === "blow-dry" ||
+          iconType === "hair-dryer" ||
+          iconType === "dryer") && (
+          <g transform="translate(40, 20)">
+            {/* Outer Ergonomic Body Casing (Chamber + Nozzle) */}
+            <path
+              d="
+                M 260 300 
+                L 620 320 
+                L 720 340 
+                L 720 460 
+                L 620 480 
+                L 440 480 
+                L 410 660 
+                L 330 650 
+                L 350 480 
+                L 260 480 
+                Z
+              "
+              fill="#0F172A"
+              stroke="#64748B"
+              strokeWidth="5"
+            />
+
+            {/* Handle Grip & Switch */}
+            <rect x="340" y="520" width="16" height="35" rx="4" fill="#EF4444" />
+            <text x="370" y="542" fill="#FEF08A" fontSize="13" fontWeight="900">
+              ON // MAX
+            </text>
+
+            {/* Rear Air Intake Grill (Left) */}
+            <path d="M 260 310 L 260 470" stroke="#38BDF8" strokeWidth="8" strokeDasharray="6 6" />
+            {/* Suction arrows behind */}
+            {[-40, 0, 40].map((yOff, i) => {
+              const xArr = 180 + ((frame * 12 + i * 30) % 60);
+              return (
+                <polygon
+                  key={i}
+                  points={`${xArr},${390 + yOff} ${xArr + 15},${390 + yOff - 6} ${xArr + 15},${390 + yOff + 6}`}
+                  fill="#38BDF8"
+                />
+              );
+            })}
+
+            {/* Internal Mini Motor & Fan */}
+            <rect
+              x="290"
+              y="350"
+              width="50"
+              height="80"
+              rx="8"
+              fill="#334155"
+              stroke="#94A3B8"
+              strokeWidth="3"
+            />
+            <g transform={`rotate(${rotFast * 2}, 315, 390)`}>
+              <circle cx="315" cy="390" r="12" fill="#06B6D4" />
+              <line x1="315" y1="365" x2="315" y2="415" stroke="#FFF" strokeWidth="4" />
+              <line x1="290" y1="390" x2="340" y2="390" stroke="#FFF" strokeWidth="4" />
+            </g>
+
+            {/* Internal Mica Frame with Glowing Nichrome Wire */}
+            <rect
+              x="420"
+              y="345"
+              width="170"
+              height="90"
+              rx="8"
+              fill="#1E1B4B"
+              stroke="#F97316"
+              strokeWidth="3"
+            />
+            {Array.from({ length: 6 }).map((_, i) => (
+              <ellipse
+                key={i}
+                cx={445 + i * 24}
+                cy="390"
+                rx="8"
+                ry="35"
+                fill="none"
+                stroke={Math.sin(frame * 0.4 + i) > 0 ? "#FEF08A" : "#EF4444"}
+                strokeWidth="4"
+                style={{ filter: "drop-shadow(0 0 8px #F97316)" }}
+              />
+            ))}
+
+            {/* Concentrator Nozzle at front (Right) */}
+            <rect
+              x="700"
+              y="345"
+              width="25"
+              height="110"
+              rx="4"
+              fill="#475569"
+              stroke="#94A3B8"
+              strokeWidth="3"
+            />
+
+            {/* Blast of Hot Air & Evaporating Water Droplets */}
+            {[-35, -10, 15, 40].map((yOff, i) => {
+              const xPos = 725 + ((frame * 25 + i * 50) % 220);
+              return (
+                <g key={i} transform={`translate(${xPos}, ${400 + yOff})`}>
+                  <path
+                    d="M 0 0 Q 30 -8 60 0"
+                    fill="none"
+                    stroke="#F97316"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                  />
+                  <polygon points="60,-5 72,0 60,5" fill="#FEF08A" />
+                </g>
+              );
+            })}
+
+            {/* Water Droplets Evaporating into Steam */}
+            {[50, 90, 140, 180].map((dx, i) => {
+              const evapProgress = ((frame * 3 + i * 20) % 100) / 100;
+              return (
+                <g
+                  key={i}
+                  transform={`translate(${740 + dx}, ${360 + (i % 2) * 60 - evapProgress * 40})`}
+                  opacity={1 - evapProgress}
+                >
+                  <circle cx="0" cy="0" r={7 * (1 - evapProgress)} fill="#38BDF8" />
+                  <path d="M -4 -8 Q 0 -16 4 -8" stroke="#E2E8F0" strokeWidth="2" fill="none" />
+                </g>
+              );
+            })}
+
+            <text
+              x="490"
+              y="280"
+              textAnchor="middle"
+              fill="#FEF08A"
+              fontSize="18"
+              fontWeight="900"
+              letterSpacing="2"
+            >
+              MÁY SẤY TÓC // LÀM KHÔ SIÊU TỐC
+            </text>
+          </g>
+        )}
+
+        {/* 9. GENERIC / TECH CORE PULSE (Default Fallback) */}
         {(iconType === "generic" || isOutro) && (
           <g transform={`scale(${pulseScale})`} style={{ transformOrigin: "500px 400px" }}>
             <circle cx="500" cy="400" r="180" stroke={accent} strokeWidth="4" />
