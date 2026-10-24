@@ -1,0 +1,56 @@
+{
+  "id": "dong-co-phan-luc",
+  "title": "ĐỘNG CƠ PHẢN LỰC HOẠT ĐỘNG THẾ NÀO?",
+  "category": "CÔNG NGHỆ // 30 GIÂY",
+  "theme": {
+    "visualPack": "blueprint",
+    "accentColor": "#06B6D4",
+    "secondaryColor": "#3B82F6",
+    "warningColor": "#EF4444"
+  },
+  "segments": [
+    {
+      "step": 1,
+      "name": "HÚT KHÍ",
+      "voiceText": "Bước một: Cánh quạt khổng lồ hút hàng tấn không khí vào buồng nén mỗi giây.",
+      "highlight": "BƯỚC 1: HÚT KHÍ ➔ NẠP KHÍ VÀO",
+      "subText": "Cánh quạt khổng lồ hút hàng tấn không khí vào buồng nén mỗi giây.",
+      "icon": "fan",
+      "sfx": "whoosh"
+    },
+    {
+      "step": 2,
+      "name": "NÉN ÁP SUẤT",
+      "voiceText": "Bước hai: Các tầng tuabin liên tục nén khí lại khiến áp suất và nhiệt độ tăng vọt nghìn độ.",
+      "highlight": "BƯỚC 2: NÉN KHÍ ➔ ÁP SUẤT CỰC ĐẠI",
+      "subText": "Các tầng tuabin liên tục nén khí lại khiến áp suất và nhiệt độ tăng vọt nghìn độ.",
+      "icon": "pressure",
+      "sfx": "compress"
+    },
+    {
+      "step": 3,
+      "name": "ĐỐT CHÁY",
+      "voiceText": "Bước ba: Nhiên liệu phun vào buồng đốt phát hỏa tạo luồng khí giãn nở kinh hoàng.",
+      "highlight": "BƯỚC 3: PHUN NHIÊN LIỆU ➔ KÍCH NỔ",
+      "subText": "Nhiên liệu phun vào buồng đốt phát hỏa tạo luồng khí giãn nở kinh hoàng.",
+      "icon": "fire",
+      "sfx": "ignite"
+    },
+    {
+      "step": 4,
+      "name": "PHẢN LỰC PHUN",
+      "voiceText": "Bước bốn: Khí phụt cực mạnh ra đuôi máy bay, đẩy phi cơ lao đi xé toạc bầu trời!",
+      "highlight": "BƯỚC 4: KHÍ PHỤT RA ĐUÔI ➔ ĐẨY PHI CƠ",
+      "subText": "Khí phụt cực mạnh ra đuôi máy bay, đẩy phi cơ lao đi xé toạc bầu trời!",
+      "icon": "thrust",
+      "sfx": "thrust"
+    }
+  ],
+  "outro": {
+    "voiceText": "Xong trong ba mươi giây! Bạn muốn mổ xẻ cỗ máy nào tiếp theo, hãy bình luận nhé!",
+    "highlight": "30 GIÂY ĐÃ HẾT! ✈️",
+    "subText": "Bạn muốn mổ xẻ cỗ máy nào tiếp theo?",
+    "cta": "Hãy để lại bình luận ngay bên dưới!"
+  },
+  "audioFolder": "audio/dong-co-phan-luc"
+}

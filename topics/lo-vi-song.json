@@ -1,0 +1,56 @@
+{
+  "id": "lo-vi-song",
+  "title": "LÒ VI SÓNG HOẠT ĐỘNG THẾ NÀO?",
+  "category": "KHOA HỌC // 30 GIÂY",
+  "theme": {
+    "visualPack": "science",
+    "accentColor": "#F59E0B",
+    "secondaryColor": "#EC4899",
+    "warningColor": "#EF4444"
+  },
+  "segments": [
+    {
+      "step": 1,
+      "name": "PHÁT SÓNG",
+      "voiceText": "Bước một: Bóng đèn Magnetron tạo ra sóng điện từ có tần số hai phẩy bốn lăm gigahertz.",
+      "highlight": "BƯỚC 1: BÓNG MAGNETRON ➔ PHÁT SÓNG VI BA",
+      "subText": "Bóng Magnetron tạo ra sóng điện từ tần số cực cao 2.45 GHz.",
+      "icon": "wave",
+      "sfx": "wave"
+    },
+    {
+      "step": 2,
+      "name": "PHÂN TỬ NƯỚC",
+      "voiceText": "Bước hai: Sóng vi ba xuyên qua đĩa sứ, tác động trực tiếp vào các phân tử nước trong thức ăn.",
+      "highlight": "BƯỚC 2: SÓNG XUYÊN THẤU ➔ HẤP THỤ NƯỚC",
+      "subText": "Sóng vi ba xuyên qua đĩa sứ, tác động trực tiếp vào phân tử nước.",
+      "icon": "pressure",
+      "sfx": "compress"
+    },
+    {
+      "step": 3,
+      "name": "MA SÁT NHIỆT",
+      "voiceText": "Bước ba: Các phân tử nước đảo chiều hai phẩy bốn tỷ lần mỗi giây, ma sát sinh ra nhiệt lượng cực lớn.",
+      "highlight": "BƯỚC 3: ĐẢO CHIỀU 2.4 TỶ LẦN ➔ SINH NHIỆT",
+      "subText": "Phân tử nước đảo chiều 2.4 tỷ lần mỗi giây, ma sát tự sinh nhiệt.",
+      "icon": "fire",
+      "sfx": "ignite"
+    },
+    {
+      "step": 4,
+      "name": "NÓNG TỪ TRONG",
+      "voiceText": "Bước bốn: Thức ăn tự nóng lên từ bên trong ra ngoài, nhanh hơn bếp gas gấp mười lần!",
+      "highlight": "BƯỚC 4: NÓNG TỪ TRONG RA ➔ CHÍN SIÊU TỐC",
+      "subText": "Thức ăn tự làm nóng từ trong ra ngoài, nhanh gấp 10 lần bếp thông thường!",
+      "icon": "thrust",
+      "sfx": "thrust"
+    }
+  ],
+  "outro": {
+    "voiceText": "Xong trong ba mươi giây! Bạn muốn mổ xẻ cỗ máy nào tiếp theo, hãy bình luận nhé!",
+    "highlight": "30 GIÂY ĐÃ HẾT! ⚡",
+    "subText": "Bạn muốn giải mã bí mật cỗ máy nào tiếp theo?",
+    "cta": "Hãy bình luận ngay bên dưới!"
+  },
+  "audioFolder": "audio/lo-vi-song"
+}
